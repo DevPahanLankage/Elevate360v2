@@ -2,6 +2,7 @@
 
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
+import Footer from "../components/Footer";
 
 export default function Contact() {
   return (
@@ -54,7 +55,7 @@ export default function Contact() {
                       id="name"
                       name="name"
                       required
-                      className="w-full px-12 py-3 rounded-2xl glass-card no-hover !transform-none !transition-none text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
+                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
                       placeholder="Your full name"
                     />
                   </div>
@@ -71,7 +72,7 @@ export default function Contact() {
                       id="email"
                       name="email"
                       required
-                      className="w-full px-12 py-3 rounded-2xl glass-card no-hover !transform-none !transition-none text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
+                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -88,7 +89,7 @@ export default function Contact() {
                       id="phone"
                       name="phone"
                       required
-                      className="w-full px-12 py-3 rounded-2xl glass-card no-hover !transform-none !transition-none text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
+                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
                       placeholder="Your phone number"
                     />
                   </div>
@@ -105,7 +106,7 @@ export default function Contact() {
                       id="subject"
                       name="subject"
                       required
-                      className="w-full px-12 py-3 rounded-2xl glass-card no-hover !transform-none !transition-none text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
+                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
                       placeholder="What is this about?"
                     />
                   </div>
@@ -124,7 +125,7 @@ export default function Contact() {
                       name="message"
                       required
                       rows={10}
-                      className="w-full px-12 py-3 rounded-2xl glass-card no-hover !transform-none !transition-none text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none text-lg"
+                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none text-lg"
                       placeholder="Your message..."
                     ></textarea>
                   </div>
@@ -142,6 +143,7 @@ export default function Contact() {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
     </div>
   );

@@ -2,6 +2,7 @@
 
 import Navbar from "../components/Navbar";
 import { motion } from "framer-motion";
+import Footer from "../components/Footer";
 
 export default function About() {
   return (
@@ -198,6 +199,7 @@ export default function About() {
             </div>
           </div>
         </section>
+        <Footer />
       </div>
     </div>
   );
