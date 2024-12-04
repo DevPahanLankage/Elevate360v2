@@ -1,8 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import Navbar from "./components/Navbar";
 import { motion } from "framer-motion";
+import Navbar from "./components/Navbar";
 import { useEffect, useState } from "react";
 import Footer from "./components/Footer";
 import ServiceModal from "./components/ServiceModal";
