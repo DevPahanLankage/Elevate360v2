@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -20,6 +20,13 @@ const geistMono = localFont({
   fallback: ["monospace"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#2A3663",
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://elevate360.agency"),
   title: "Elevate360 | Digital Marketing Agency",
@@ -30,7 +37,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Elevate360" }],
   creator: "Elevate360",
   publisher: "Elevate360",
-  themeColor: "#2A3663",
   robots: {
     index: true,
     follow: true,
@@ -69,11 +75,6 @@ export const metadata: Metadata = {
       "Transform your digital presence with Elevate360. We specialize in social media marketing, web development, and strategic digital solutions.",
     images: ["/og-image.jpg"],
   },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 5,
-  },
   verification: {
     google: "your-google-site-verification",
   },
@@ -107,7 +108,6 @@ export default function RootLayout({
           href="/favicon-16x16.png"
         />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#2A3663" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
       </head>
