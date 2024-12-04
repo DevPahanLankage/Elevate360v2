@@ -3,19 +3,488 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 255, 255, 255;
+  --background: #2a3663;
 }
 
 body {
-  color: var(--foreground);
+  color: rgb(var(--foreground-rgb));
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-gradient {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    #2a3663 45%,
+    rgba(250, 246, 227, 0.5) 45%,
+    rgba(123, 97, 255, 0.3) 65%,
+    rgba(181, 159, 120, 0.3) 85%,
+    rgba(250, 246, 227, 0.5) 100%
+  );
+  z-index: 0;
+}
+
+.hero-gradient::before,
+.hero-gradient::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  right: -50%;
+  bottom: 0;
+  background-size: 400% 400%;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.hero-gradient::before {
+  background: linear-gradient(
+    45deg,
+    transparent 45%,
+    rgba(250, 246, 227, 0.3) 45%,
+    rgba(123, 97, 255, 0.2) 65%,
+    rgba(181, 159, 120, 0.2) 85%,
+    rgba(250, 246, 227, 0.3) 100%
+  );
+  animation: gradient-shift-1 15s ease infinite,
+    gradient-move 20s linear infinite;
+}
+
+.hero-gradient::after {
+  background: linear-gradient(
+    -45deg,
+    transparent 45%,
+    rgba(250, 246, 227, 0.2) 45%,
+    rgba(147, 112, 219, 0.1) 65%,
+    rgba(181, 159, 120, 0.1) 85%,
+    rgba(250, 246, 227, 0.2) 100%
+  );
+  animation: gradient-shift-2 10s ease infinite,
+    gradient-move-reverse 25s linear infinite;
+}
+
+@keyframes gradient-move {
+  0% {
+    transform: translateX(-10%) scale(1);
+  }
+  50% {
+    transform: translateX(10%) scale(1.05);
+  }
+  100% {
+    transform: translateX(-10%) scale(1);
+  }
+}
+
+@keyframes gradient-move-reverse {
+  0% {
+    transform: translateX(10%) scale(1.05);
+  }
+  50% {
+    transform: translateX(-10%) scale(1);
+  }
+  100% {
+    transform: translateX(10%) scale(1.05);
+  }
+}
+
+@keyframes gradient-shift-1 {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient-shift-2 {
+  0% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+
+/* Add a subtle pulse animation to the gradient edge */
+@keyframes gradient-pulse {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+.hero-gradient {
+  animation: gradient-pulse 4s ease-in-out infinite;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #faf6e3, #d8dbbd);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Glass card base styles */
+.glass-card {
+  background: rgba(250, 246, 227, 0.05);
+  background: linear-gradient(
+    135deg,
+    rgba(250, 246, 227, 0.1) 0%,
+    rgba(250, 246, 227, 0.03) 100%
+  );
+  backdrop-filter: blur(40px) saturate(140%);
+  -webkit-backdrop-filter: blur(40px) saturate(140%);
+  border: 1px solid rgba(250, 246, 227, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(250, 246, 227, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Glass card hover effect - explicitly exclude .no-hover */
+.glass-card:hover:not(.no-hover) {
+  transform: translateY(-8px) scale(1.01);
+  background: linear-gradient(
+    135deg,
+    rgba(250, 246, 227, 0.12) 0%,
+    rgba(250, 246, 227, 0.05) 100%
+  );
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35), 0 15px 25px rgba(0, 0, 0, 0.25),
+    inset 0 0 0 1px rgba(250, 246, 227, 0.08);
+}
+
+/* Disable all hover effects for no-hover class */
+.glass-card.no-hover {
+  transition: none !important;
+}
+
+.glass-card.no-hover:hover {
+  transform: none !important;
+  background: rgba(250, 246, 227, 0.05) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(250, 246, 227, 0.1) 0%,
+    rgba(250, 246, 227, 0.03) 100%
+  ) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(250, 246, 227, 0.05) !important;
+}
+
+.no-hover {
+  transform: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+.no-hover:hover {
+  transform: none !important;
+  background: rgba(250, 246, 227, 0.05) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(250, 246, 227, 0.05) !important;
+  backdrop-filter: blur(40px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(140%) !important;
+}
+
+.nav-blur {
+  background: rgba(250, 246, 227, 0.04);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+}
+
+/* Graph Bar Animations */
+@keyframes graph-bar {
+  0%,
+  100% {
+    height: var(--base-height);
+  }
+  50% {
+    height: calc(var(--base-height) + 20%);
+  }
+}
+
+.animate-graph-bar1 {
+  --base-height: 20%;
+  animation: graph-bar 3s ease-in-out infinite;
+}
+.animate-graph-bar2 {
+  --base-height: 40%;
+  animation: graph-bar 3s ease-in-out infinite 0.2s;
+}
+.animate-graph-bar3 {
+  --base-height: 30%;
+  animation: graph-bar 3s ease-in-out infinite 0.4s;
+}
+.animate-graph-bar4 {
+  --base-height: 60%;
+  animation: graph-bar 3s ease-in-out infinite 0.6s;
+}
+.animate-graph-bar5 {
+  --base-height: 45%;
+  animation: graph-bar 3s ease-in-out infinite 0.8s;
+}
+.animate-graph-bar6 {
+  --base-height: 80%;
+  animation: graph-bar 3s ease-in-out infinite 1s;
+}
+.animate-graph-bar7 {
+  --base-height: 70%;
+  animation: graph-bar 3s ease-in-out infinite 1.2s;
+}
+.animate-graph-bar8 {
+  --base-height: 90%;
+  animation: graph-bar 3s ease-in-out infinite 1.4s;
+}
+
+/* Metrics Scroll Animation */
+@keyframes metric-scroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-metric-scroll {
+  animation: metric-scroll 10s linear infinite;
+}
+
+/* Add this after your existing gradient animations */
+
+.excellence-gradient {
+  background: linear-gradient(300deg, #ff69b4, #9370db, #ffd700, #ff69b4);
+  background-size: 300% 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: excellence-shine 8s ease infinite;
+}
+
+@keyframes excellence-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 100% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 0% 100%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatUpDown {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes rotateAround {
+  0% {
+    transform: rotate(0deg) translateX(60px) translateY(30px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(60px) translateY(30px) rotate(-360deg);
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0.3;
+  }
+}
+
+.floating-icon {
+  animation: floatUpDown 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+.rotating-icon {
+  position: absolute;
+  animation: rotateAround 12s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+  opacity: 0.15;
+  font-size: 24px;
+}
+
+.sliding-code {
+  position: absolute;
+  animation: slideRight 8s linear infinite;
+  will-change: transform;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Increase visibility of decorative elements */
+.service-card-decoration {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Add these new animation classes */
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+.fade-up {
+  animation: fadeUp 0.6s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add animation delays */
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
+/* Initial state for animations */
+.fade-up,
+.slide-in-left,
+.slide-in-right {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.slide-in-left {
+  transform: translateX(-20px);
+}
+
+.slide-in-right {
+  transform: translateX(20px);
+}
+
+/* Animation trigger class */
+.animate {
+  animation-play-state: running !important;
+}
+
+/* Add this to your existing animation classes */
+.fade-up,
+.slide-in-left,
+.slide-in-right {
+  animation-play-state: paused;
+}
+
+/* Add a class to disable hover effects for form fields and footer */
+.no-hover {
+  transform: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+.no-hover:hover {
+  transform: none !important;
+  background: rgba(250, 246, 227, 0.05) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(250, 246, 227, 0.05) !important;
+  backdrop-filter: blur(40px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(140%) !important;
+}
+
+/* Remove any transform overrides */
+.fade-up,
+.slide-in-left,
+.slide-in-right {
+  animation-play-state: paused;
+  transform: none;
+}
+
+.fade-up.animate,
+.slide-in-left.animate,
+.slide-in-right.animate {
+  animation-play-state: running;
+}
+
+/* Ensure no-hover class properly disables hover effects */
+.no-hover {
+  transform: none !important;
+  transition: none !important;
+  will-change: auto !important;
+}
+
+.no-hover:hover {
+  transform: none !important;
+  background: rgba(250, 246, 227, 0.05) !important;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3), 0 10px 20px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(250, 246, 227, 0.05) !important;
+  backdrop-filter: blur(40px) saturate(140%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(140%) !important;
 }
