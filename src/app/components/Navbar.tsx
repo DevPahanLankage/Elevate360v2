@@ -220,7 +220,8 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-white/80 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-xl text-white hover:text-white/80 focus:outline-none glass-card"
+              aria-label="Toggle menu"
             >
               <svg
                 className="h-6 w-6"
@@ -251,28 +252,165 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-black/50 backdrop-blur-md">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <Link
-              href="#services"
-              className="text-white/70 hover:text-white block px-3 py-2 text-base"
-            >
-              Services
-            </Link>
-            <Link
-              href="#testimonials"
-              className="text-white/70 hover:text-white block px-3 py-2 text-base"
-            >
-              Testimonials
-            </Link>
-            <Link
-              href="#contact"
-              className="text-white/70 hover:text-white block px-3 py-2 text-base"
-            >
-              Contact
-            </Link>
+        <>
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 mobile-menu-backdrop"
+            onClick={() => setIsOpen(false)}
+          />
+          <div className="fixed inset-y-0 right-0 w-full max-w-sm mobile-menu z-50 mobile-menu-enter">
+            <div className="flex flex-col h-full">
+              <div className="flex items-center justify-between p-6 mobile-menu-item">
+                <Link
+                  href="/"
+                  className="excellence-gradient text-2xl font-bold"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Elevate360
+                </Link>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="p-2 text-white/70 hover:text-white rounded-xl glass-card"
+                >
+                  <svg
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="flex-1 overflow-y-auto py-6 px-6">
+                <div className="space-y-6">
+                  {/* Services Section */}
+                  <div className="mobile-menu-item">
+                    <button
+                      onClick={() => setServicesOpen(!servicesOpen)}
+                      className="flex items-center justify-between w-full text-left text-white font-bold text-lg py-2"
+                    >
+                      <span>Services</span>
+                      <svg
+                        className={`w-5 h-5 transition-transform duration-300 ${
+                          servicesOpen ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                    <div
+                      className={`mobile-submenu ${
+                        servicesOpen ? "expanded" : "collapsed"
+                      }`}
+                    >
+                      {[
+                        "Digital Strategy",
+                        "UX Design",
+                        "Digital Design",
+                        "Product Design",
+                        "Web Development",
+                        "Search Engine Optimisation (SEO)",
+                        "Strategic Client Services",
+                        "Social Media Marketing",
+                        "Content Creation",
+                        "Brand Strategy",
+                      ].map((service, index) => (
+                        <Link
+                          key={index}
+                          href="#"
+                          className="block py-2 pl-4 text-white/70 hover:text-white transition-colors"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {service}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Solutions Section */}
+                  <div className="mobile-menu-item">
+                    <button
+                      onClick={() => setSolutionsOpen(!solutionsOpen)}
+                      className="flex items-center justify-between w-full text-left text-white font-bold text-lg py-2"
+                    >
+                      <span>Solutions</span>
+                      <svg
+                        className={`w-5 h-5 transition-transform duration-300 ${
+                          solutionsOpen ? "rotate-180" : ""
+                        }`}
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M19 9l-7 7-7-7"
+                        />
+                      </svg>
+                    </button>
+                    <div
+                      className={`mobile-submenu ${
+                        solutionsOpen ? "expanded" : "collapsed"
+                      }`}
+                    >
+                      {[
+                        "Websites",
+                        "Web Applications",
+                        "Digital Transformation",
+                        "For Startups",
+                        "For Enterprise",
+                        "Custom Solutions",
+                      ].map((solution, index) => (
+                        <Link
+                          key={index}
+                          href="#"
+                          className="block py-2 pl-4 text-white/70 hover:text-white transition-colors"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {solution}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  <Link
+                    href="/about"
+                    className="block text-white font-bold text-lg py-2 mobile-menu-item"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    About
+                  </Link>
+                </div>
+              </div>
+
+              <div className="p-6 border-t border-white/10">
+                <Link
+                  href="/contact"
+                  className="block w-full py-3 px-4 bg-white text-[#2A3663] text-center font-bold rounded-xl hover:bg-white/90 transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Contact Us
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </nav>
   );
