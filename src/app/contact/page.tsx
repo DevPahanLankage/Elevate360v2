@@ -55,7 +55,7 @@ export default function Contact() {
                       id="name"
                       name="name"
                       required
-                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
+                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 text-lg"
                       placeholder="Your full name"
                     />
                   </div>
@@ -72,7 +72,7 @@ export default function Contact() {
                       id="email"
                       name="email"
                       required
-                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
+                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 text-lg"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -89,7 +89,7 @@ export default function Contact() {
                       id="phone"
                       name="phone"
                       required
-                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
+                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 text-lg"
                       placeholder="Your phone number"
                     />
                   </div>
@@ -106,7 +106,7 @@ export default function Contact() {
                       id="subject"
                       name="subject"
                       required
-                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 text-lg"
+                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 text-lg"
                       placeholder="What is this about?"
                     />
                   </div>
@@ -125,7 +125,7 @@ export default function Contact() {
                       name="message"
                       required
                       rows={10}
-                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 focus:outline-none focus:ring-2 focus:ring-white/20 resize-none text-lg"
+                      className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 resize-none text-lg"
                       placeholder="Your message..."
                     ></textarea>
                   </div>

@@ -45,7 +45,7 @@ export default function ServiceModal({
                 duration: 0.5,
                 opacity: { duration: 0.2 },
               }}
-              className="relative glass-card no-hover rounded-3xl overflow-hidden w-full max-w-2xl pointer-events-auto"
+              className="relative glass-card-modal w-full max-w-2xl pointer-events-auto"
             >
               {/* Close button */}
               <button
