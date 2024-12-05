@@ -138,12 +138,12 @@ export default function Home() {
         <section className="relative min-h-screen pt-8 sm:pt-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
             <div className="lg:grid lg:grid-cols-12 lg:gap-8 xl:gap-12 2xl:gap-16">
-              <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left">
+              <div className="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left px-4 sm:px-0">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
-                  className="text-lg mb-4 block font-bold"
+                  className="text-base sm:text-lg mb-4 block font-bold"
                 >
                   <span className="text-white">
                     Driven by Results, Defined by{" "}
@@ -154,7 +154,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl"
+                  className="text-3xl sm:text-4xl tracking-tight font-extrabold md:text-5xl lg:text-6xl"
                 >
                   <span className="block text-white xl:inline">
                     Transform Your
@@ -167,7 +167,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.4 }}
-                  className="mt-6 text-lg text-white font-bold sm:mt-8 sm:text-xl leading-relaxed sm:leading-relaxed max-w-3xl"
+                  className="mt-4 sm:mt-6 text-base sm:text-lg text-white font-bold sm:text-xl leading-relaxed sm:leading-relaxed max-w-3xl"
                 >
                   Elevate360 is a results-driven marketing agency focused on
                   enhancing your brand through innovative strategies and
@@ -267,41 +267,41 @@ export default function Home() {
         </section>
 
         {/* Services Section */}
-        <section className="relative pb-32">
+        <section className="relative pb-16 sm:pb-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-20"
+              className="text-center mb-12 sm:mb-20"
             >
-              <h2 className="text-4xl font-bold text-white mb-6 sm:text-5xl">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:text-5xl">
                 Our <span className="excellence-gradient">Services</span>
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-3">
               {services.map((service, index) => (
                 <div
                   key={index}
                   className="group cursor-pointer"
                   onClick={() => setSelectedService(index)}
                 >
-                  <div className="glass-card p-8 rounded-3xl">
-                    <div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-6 mx-auto relative">
+                  <div className="glass-card p-6 sm:p-8 rounded-3xl">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 rounded-2xl flex items-center justify-center mb-4 sm:mb-6 mx-auto relative">
                       <div className="absolute inset-0 bg-white/5 rounded-2xl rotate-45 group-hover:rotate-90 transition-all duration-500"></div>
-                      <div className="relative z-10 group-hover:scale-110 transition-transform duration-500">
+                      <div className="relative z-10 group-hover:scale-110 transition-transform duration-500 scale-90 sm:scale-100">
                         {service.icon}
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-white mb-4 text-center">
+                    <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4 text-center">
                       {service.title}
                     </h3>
-                    <p className="text-white mb-6 text-center">
+                    <p className="text-sm sm:text-base text-white mb-4 sm:mb-6 text-center">
                       {service.shortDesc}
                     </p>
-                    <ul className="space-y-3 mb-8">
+                    <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                       {service.features.slice(0, 3).map((feature, i) => (
                         <li key={i} className="flex items-center text-white">
                           <span
@@ -331,28 +331,28 @@ export default function Home() {
         </section>
 
         {/* Success Stories Section */}
-        <section className="relative pb-32">
+        <section className="relative pb-16 sm:pb-32">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-20"
+              className="text-center mb-12 sm:mb-20"
             >
-              <h2 className="text-4xl font-bold text-white mb-6 sm:text-5xl">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:text-5xl">
                 Client <span className="excellence-gradient">Success</span>{" "}
                 Stories
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">
               <div className="group">
-                <div className="glass-card p-8 rounded-3xl">
-                  <div className="flex items-center mb-6">
-                    <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center mr-4">
+                <div className="glass-card p-6 sm:p-8 rounded-3xl">
+                  <div className="flex flex-col sm:flex-row items-center mb-4 sm:mb-6">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 rounded-full flex items-center justify-center mb-3 sm:mb-0 sm:mr-4">
                       <svg
-                        className="w-8 h-8 text-white"
+                        className="w-6 h-6 sm:w-8 sm:h-8 text-white"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -365,14 +365,16 @@ export default function Home() {
                         />
                       </svg>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white">
+                    <div className="text-center sm:text-left">
+                      <h3 className="text-xl sm:text-2xl font-bold text-white">
                         Cashnuja Vanderwall
                       </h3>
-                      <p className="text-white/80">Director, TicketVaultLK</p>
+                      <p className="text-sm sm:text-base text-white/80">
+                        Director, TicketVaultLK
+                      </p>
                     </div>
                   </div>
-                  <p className="text-white/90 mb-6 leading-relaxed">
+                  <p className="text-sm sm:text-base text-white/90 mb-4 sm:mb-6 leading-relaxed text-center sm:text-left">
                     "Elevate360 transformed our online presence. Their strategic
                     approach to social media management resulted in a 200%
                     increase in engagement."
@@ -443,16 +445,16 @@ export default function Home() {
         </section>
 
         {/* Contact Form Section */}
-        <section className="relative pb-32">
-          <div className="max-w-[85rem] mx-auto px-24">
+        <section className="relative pb-16 sm:pb-32">
+          <div className="max-w-[85rem] mx-auto px-4 sm:px-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-20"
+              className="text-center mb-12 sm:mb-20"
             >
-              <h2 className="text-4xl font-bold text-white mb-6 sm:text-5xl">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6 sm:text-5xl">
                 Get in <span className="excellence-gradient">Touch</span>
               </h2>
             </motion.div>
@@ -464,7 +466,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               action="https://api.web3forms.com/submit"
               method="POST"
-              className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full"
+              className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 w-full"
             >
               <input
                 type="hidden"
@@ -472,11 +474,11 @@ export default function Home() {
                 value="19952a92-d88f-439c-bc5d-367f501f2d78"
               />
 
-              <div className="space-y-8 w-full">
-                <div className="space-y-3">
+              <div className="space-y-6 sm:space-y-8 w-full">
+                <div className="space-y-2 sm:space-y-3">
                   <label
                     htmlFor="name"
-                    className="block text-white/90 font-bold text-lg"
+                    className="block text-white/90 font-bold text-base sm:text-lg"
                   >
                     Full Name
                   </label>
@@ -485,15 +487,15 @@ export default function Home() {
                     id="name"
                     name="name"
                     required
-                    className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 text-lg"
+                    className="glass-input w-full px-6 sm:px-12 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-white placeholder-white/40 text-base sm:text-lg"
                     placeholder="Your full name"
                   />
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <label
                     htmlFor="email"
-                    className="block text-white/90 font-bold text-lg"
+                    className="block text-white/90 font-bold text-base sm:text-lg"
                   >
                     Email
                   </label>
@@ -502,15 +504,15 @@ export default function Home() {
                     id="email"
                     name="email"
                     required
-                    className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 text-lg"
+                    className="glass-input w-full px-6 sm:px-12 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-white placeholder-white/40 text-base sm:text-lg"
                     placeholder="your@email.com"
                   />
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <label
                     htmlFor="phone"
-                    className="block text-white/90 font-bold text-lg"
+                    className="block text-white/90 font-bold text-base sm:text-lg"
                   >
                     Phone Number
                   </label>
@@ -519,15 +521,15 @@ export default function Home() {
                     id="phone"
                     name="phone"
                     required
-                    className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 text-lg"
+                    className="glass-input w-full px-6 sm:px-12 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-white placeholder-white/40 text-base sm:text-lg"
                     placeholder="Your phone number"
                   />
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   <label
                     htmlFor="subject"
-                    className="block text-white/90 font-bold text-lg"
+                    className="block text-white/90 font-bold text-base sm:text-lg"
                   >
                     Subject
                   </label>
@@ -536,17 +538,17 @@ export default function Home() {
                     id="subject"
                     name="subject"
                     required
-                    className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 text-lg"
+                    className="glass-input w-full px-6 sm:px-12 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-white placeholder-white/40 text-base sm:text-lg"
                     placeholder="What is this about?"
                   />
                 </div>
               </div>
 
-              <div className="space-y-8">
-                <div className="space-y-3">
+              <div className="space-y-6 sm:space-y-8">
+                <div className="space-y-2 sm:space-y-3">
                   <label
                     htmlFor="message"
-                    className="block text-white/90 font-bold text-lg"
+                    className="block text-white/90 font-bold text-base sm:text-lg"
                   >
                     Message
                   </label>
@@ -554,16 +556,16 @@ export default function Home() {
                     id="message"
                     name="message"
                     required
-                    rows={10}
-                    className="glass-input w-full px-12 py-3 rounded-2xl text-white placeholder-white/40 resize-none text-lg"
+                    rows={8}
+                    className="glass-input w-full px-6 sm:px-12 py-2.5 sm:py-3 rounded-xl sm:rounded-2xl text-white placeholder-white/40 resize-none text-base sm:text-lg"
                     placeholder="Your message..."
                   ></textarea>
                 </div>
 
-                <div className="flex justify-start">
+                <div className="flex justify-center sm:justify-start">
                   <button
                     type="submit"
-                    className="px-12 py-4 bg-white hover:bg-white/90 rounded-2xl text-[#2A3663] font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]"
+                    className="px-8 sm:px-12 py-3 sm:py-4 bg-white hover:bg-white/90 rounded-xl sm:rounded-2xl text-[#2A3663] font-bold text-base sm:text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02]"
                   >
                     Send Message
                   </button>
